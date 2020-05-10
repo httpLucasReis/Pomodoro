@@ -1,19 +1,68 @@
-body, html {
-    height: 100%;
+@font-face {
+  font-family: "DsDigital";
+  src: url(../fonts/ds_digital/DS-DIGIT.TTF);
+}
+
+body,
+html {
+  height: 100%;
 }
 
 body {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to left top, #7bb676, #3b9c32);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left top, #7bb676, #3b9c32);
 }
 
 header {
-    width: 100%;
-    height: 15%;
-    color: #93ec1f;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 15%;
+  background-color: #fff;
+  color: #93ec1f;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 60%;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#seconds {
+  color: #fff;
+  font-size: 6rem;
+  font-family: "DsDigital";
+
+  margin-bottom: 1.5%;
+}
+
+.btn {
+  background-color: #fff;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.7rem;
+  transition: all 0.3s ease-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in;
+}
+
+.start {
+  color: rgb(29, 97, 29);
+}
+
+.stop {
+  color: rgb(221, 64, 16);
 }
