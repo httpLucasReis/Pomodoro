@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left top, #7bb676, #3b9c32);
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    color: #93ec1f;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
