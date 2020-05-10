@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "DsDigital";
+  src: url(/_fonts/ds_digital/DS-DIGIT.TTF);
+}
+
+* {
+
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
