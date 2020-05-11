@@ -1,8 +1,8 @@
-# Pomodoro Timer
+# Pomodoro Timer 🖖
 ***
 Hello guys! fiz um pomodoro em js puro! espero que gostem e fiquem a vontade para analisar o código.
 
-# Funcionalidades
+# Funcionalidades 🖖
 ***
 * Ciclo de trabalho
 * Ciclo de descanso
@@ -10,5 +10,6 @@ Hello guys! fiz um pomodoro em js puro! espero que gostem e fiquem a vontade par
 * Continuar
 * Alerme no final de cada ciclo
 
-# Design atual
+# Design atual 🖖
+![image](https://user-images.githubusercontent.com/62820717/81520999-4f7a3d80-931c-11ea-81b0-3f910e5aa8a1.png)
 
