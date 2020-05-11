@@ -66,7 +66,7 @@ function check(start) {
 function work() {
   playAudioT = false; // Reseta a condição para tocar o áudio
   paused();
-  buffer_seconds = 10; // 25 minutos em segundos
+  buffer_seconds = 1500; // 25 minutos em segundos
   if (checkClick == false) {
     toCount = true;
     couting();
@@ -78,7 +78,7 @@ function work() {
 function rest() {
   playAudioT = false;
   paused();
-  buffer_seconds = 5; // 5 minutos em segundos
+  buffer_seconds = 300; // 5 minutos em segundos
   if (checkClick == false) {
     toCount = true;
     couting();
