@@ -1,42 +1,48 @@
 const d_seconds = document.querySelector("div#seconds");
 
-var buffer_seconds;  // Memória padrão para os segundos 
-var seconds;         
+var buffer_seconds; // Memória padrão para os segundos
+var seconds;
 var minuts;
-var toCount = false;     // Contando?
-var checkClick = false;  // Clicou?
+var toCount = false; // Contando?
+var checkClick = false; // Clicou?
+playAudioT = false;
+const audio = document.querySelector("audio");
 
-
-// Função para inserir um elemento na tela 
-function display(element){
-  document.getElementById(element).style.display = 'inline';
+// Função para inserir um elemento na tela
+function display(element) {
+  document.getElementById(element).style.display = "inline";
 }
 
 // Função para remover um elemento da tela
-function remove(element){
-  document.getElementById(element).style.display = 'none';
+function remove(element) {
+  document.getElementById(element).style.display = "none";
 }
 
-
 // Função para verificar se a contagem está pausada
-function paused(){
+function paused() {
   let p = toCount == false && checkClick == true;
-  if(p){
-    alert('Por favor, despause!');
+  if (p) {
+    alert("Por favor, despause!");
   }
 }
 
+// Função para tocar áudio
 
+function playSound() {
+  if (playAudioT == false) {
+    audio.play();
+    playAudioT = true;
+  }
+}
 // Função para checar qual botão o usuário clicou
 
 function check(start) {
-
-  if(start == "stop"){
+  if (start == "stop") {
     display("continue");
-    remove("pause")
-  } 
+    remove("pause");
+  }
 
-  if(start == "continue"){
+  if (start == "continue") {
     display("pause");
     remove("continue");
   }
@@ -58,19 +64,21 @@ function check(start) {
 }
 // Função para chamar a contagem específica para um ciclo de trabalho
 function work() {
+  playAudioT = false; // Reseta a condição para tocar o áudio
   paused();
-  buffer_seconds = 1500;       // 25 minutos em segundos
-  if (checkClick == false) {   
+  buffer_seconds = 10; // 25 minutos em segundos
+  if (checkClick == false) {
     toCount = true;
     couting();
     checkClick = true;
-  } 
+  }
 }
 
 // Função para chamar a contagem específica para um cliclo de descanso
 function rest() {
+  playAudioT = false;
   paused();
-  buffer_seconds = 300;      // 5 minutos em segundos
+  buffer_seconds = 5; // 5 minutos em segundos
   if (checkClick == false) {
     toCount = true;
     couting();
@@ -87,7 +95,6 @@ function pause() {
 function continueWork() {
   toCount = true;
 }
-
 
 // Transforma os segundos e minutos e os colaca na tela. Chama a função de contagem principal
 function couting() {
@@ -106,7 +113,7 @@ function couting() {
   setInterval(count, 1000);
 }
 
-// Tira 1 segundo do buffer_seconds e depois reimprime os minutos na tela 
+// Tira 1 segundo do buffer_seconds e depois reimprime os minutos na tela
 function count() {
   if (buffer_seconds > 0) {
     if (toCount == true) {
@@ -126,5 +133,6 @@ function count() {
     }
   } else {
     d_seconds.innerHTML = "ACABOU";
+    playSound();
   }
 }
