@@ -5,7 +5,7 @@ var seconds;
 var minuts;
 var toCount = false; // Contando?
 var checkClick = false; // Clicou?
-playAudioT = false;
+var playAudioT = false;
 const audio = document.querySelector("audio");
 
 // Função para inserir um elemento na tela
@@ -18,12 +18,9 @@ function remove(element) {
   document.getElementById(element).style.display = "none";
 }
 
-// Função para verificar se a contagem está pausada
+// Função resetar a contagem mesmo que o usuário tenha pausado
 function paused() {
-  let p = toCount == false && checkClick == true;
-  if (p) {
-    alert("Por favor, despause!");
-  }
+  toCount = true;
 }
 
 // Função para tocar áudio
@@ -40,9 +37,7 @@ function check(start) {
   if (start == "stop") {
     display("continue");
     remove("pause");
-  }
-
-  if (start == "continue") {
+  } else {
     display("pause");
     remove("continue");
   }
@@ -110,7 +105,7 @@ function couting() {
   }
 
   d_seconds.innerHTML = minuts + " : " + seconds;
-  setInterval(count, 1000);
+  var interval = setInterval(count, 1000);
 }
 
 // Tira 1 segundo do buffer_seconds e depois reimprime os minutos na tela
