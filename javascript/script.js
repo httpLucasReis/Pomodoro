@@ -6,6 +6,7 @@ var minuts;
 var toCount = false; // Contando?
 var checkClick = false; // Clicou?
 var playAudioT = false;
+const  oldtitle = document.title;
 const audio = document.querySelector("audio");
 
 // Função para inserir um elemento na tela
@@ -19,7 +20,7 @@ function remove(element) {
 }
 
 // Função resetar a contagem mesmo que o usuário tenha pausado
-function paused() {
+function forceCount() {
   toCount = true;
 }
 
@@ -60,7 +61,7 @@ function check(start) {
 // Função para chamar a contagem específica para um ciclo de trabalho
 function work() {
   playAudioT = false; // Reseta a condição para tocar o áudio
-  paused();
+  forceCount();
   buffer_seconds = 1500; // 25 minutos em segundos
   if (checkClick == false) {
     toCount = true;
@@ -72,7 +73,7 @@ function work() {
 // Função para chamar a contagem específica para um cliclo de descanso
 function rest() {
   playAudioT = false;
-  paused();
+  forceCount();
   buffer_seconds = 300; // 5 minutos em segundos
   if (checkClick == false) {
     toCount = true;
@@ -91,20 +92,28 @@ function continueWork() {
   toCount = true;
 }
 
+// Função para o acrescenta 0 em números menores que 10 
+
+function addZero(minuts, seconds) {
+  if(minuts < 10){
+    minuts = "0" + minuts;
+  }
+
+  if(seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  return [minuts,seconds];
+}
+
 // Transforma os segundos e minutos e os colaca na tela. Chama a função de contagem principal
 function couting() {
   seconds = buffer_seconds % 60;
   minuts = Math.floor(buffer_seconds / 60);
+  let time = addZero(minuts,seconds);
 
-  if (minuts < 10) {
-    minuts = "0" + minuts;
-  }
 
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-
-  d_seconds.innerHTML = minuts + " : " + seconds;
+  d_seconds.innerHTML = time[0] + " : " + time[1];
   var interval = setInterval(count, 1000);
 }
 
@@ -115,19 +124,14 @@ function count() {
       buffer_seconds--;
       seconds = buffer_seconds % 60;
       minuts = Math.floor(buffer_seconds / 60);
+      let time = addZero(minuts,seconds);
 
-      if (minuts < 10) {
-        minuts = "0" + minuts;
-      }
-
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
-
-      d_seconds.innerHTML = minuts + " : " + seconds;
+      d_seconds.innerHTML = time[0] + " : " + time[1];
+      document.title = `${oldtitle}  ${time[0]}  :  ${time[1]}`;
     }
   } else {
     d_seconds.innerHTML = "ACABOU";
+    document.title = oldtitle + " ACABOU"
     playSound();
   }
 }
