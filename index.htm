@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ef225fb983.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/reset.css"/>
     <title>Pomodoro</title>
@@ -15,10 +16,10 @@
       <audio src="audio/Simple-alert-bells-tone.mp3"></audio>
       <div id="seconds">25 : 00</div>
         <div id="buttons">
-            <button class="btn start" id="work"  onclick="check('work')">Trabalhar</button>
-            <button class="btn start" id="rest"  onclick="check('rest')">Descansar</button>
-            <button class="btn stop" id="pause"  onclick="check('stop')">Pausar</button>
-            <button class="btn start" id="continue" onclick="check('continue')">Continuar</button>
+            <button class="btn start" id="work"  onclick="check('work')"><i class="fas fa-book"></i> Trabalhar</button>
+            <button class="btn start" id="rest"  onclick="check('rest')"><i class="fas fa-walking"></i> Descansar</button>
+            <button class="btn stop" id="pause"  onclick="check('stop')"><i class="fas fa-stop"></i>Pausar</button>
+            <button class="btn start" id="continue" onclick="check('continue')"><i class="fas fa-play"></i>Continuar</button>
         </div>
     </div>
     <script src="javascript/script.js"></script>
