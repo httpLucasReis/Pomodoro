@@ -11,16 +11,20 @@ html {
 body {
   width: 100%;
   height: 100%;
+
   background: linear-gradient(to left top, #7bb676, #3b9c32);
 }
 
 header {
   font-size: 11pt;
+
   width: 100%;
   height: 15%;
+
   background-color: #fff;
   color: #93ec1f;
   text-transform: uppercase;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,11 +33,24 @@ header {
 .container {
   width: 100%;
   height: 60%;
+  
   font-size: 3rem;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.container #buttons {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  
+}
+
+.container #buttons span{
+  margin-left: 10px;
 }
 
 #seconds {
@@ -46,12 +63,17 @@ header {
 
 .btn {
   background-color: #fff;
+ 
   border-radius: 4px;
+  
   outline: none;
   border: none;
   cursor: pointer;
+ 
   padding: 0.7rem 1.4rem;
+  
   font-size: 1.7rem;
+  
   transition: all 0.3s ease-out;
 }
 

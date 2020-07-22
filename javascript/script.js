@@ -7,7 +7,7 @@ var minuts;
 var toCount = false; // Contando?
 var checkClick = false; // Clicou?
 var playAudioT = false;
-const  oldtitle = document.title;
+const oldtitle = document.title;
 const audio = document.querySelector("audio");
 
 // Função para inserir um elemento na tela
@@ -33,10 +33,14 @@ function playSound() {
     playAudioT = true;
   }
 }
+
 // Função para checar qual botão o usuário clicou
 
-function check(start) {
-  if (start == "stop") {
+function check(task) {
+  let event = task;
+  console.log(event);
+
+  if (task == "stop") {
     display("continue");
     remove("pause");
   } else {
@@ -44,12 +48,15 @@ function check(start) {
     remove("continue");
   }
 
-  switch (start) {
+  switch (task) {
     case "work":
       work();
       break;
-    case "rest":
-      rest();
+    case "srest":
+      shortRest();
+      break;
+    case "lrest":
+      longRest();
       break;
     case "stop":
       pause();
@@ -71,12 +78,25 @@ function work() {
   }
 }
 
-// Função para chamar a contagem específica para um ciclo de descanso
-function rest() {
+// Descanso Curto
+
+function shortRest() {
   playAudioT = false;
   forceCount();
   buffer_seconds = 300; // 5 minutos em segundos
   if (checkClick == false) {
+    toCount = true;
+    couting();
+    checkClick = true;
+  }
+}
+
+// Descanso longo
+function longRest() {
+  playAudioT = false;
+  forceCount();
+  buffer_seconds = 600;
+  if(checkClick == false) {
     toCount = true;
     couting();
     checkClick = true;
@@ -93,26 +113,25 @@ function continueWork() {
   toCount = true;
 }
 
-// Função para o acrescenta 0 em números menores que 10 
+// Função para o acrescenta 0 em números menores que 10
 
 function addZero(minuts, seconds) {
-  if(minuts < 10){
+  if (minuts < 10) {
     minuts = "0" + minuts;
   }
 
-  if(seconds < 10) {
+  if (seconds < 10) {
     seconds = "0" + seconds;
   }
 
-  return [minuts,seconds];
+  return [minuts, seconds];
 }
 
 // Transforma os segundos e minutos e os colaca na tela. Chama a função de contagem principal
 function couting() {
   seconds = buffer_seconds % 60;
   minuts = Math.floor(buffer_seconds / 60);
-  let time = addZero(minuts,seconds);
-
+  let time = addZero(minuts, seconds);
 
   d_seconds.innerHTML = time[0] + " : " + time[1];
   var interval = setInterval(count, 1000);
@@ -125,14 +144,14 @@ function count() {
       buffer_seconds--;
       seconds = buffer_seconds % 60;
       minuts = Math.floor(buffer_seconds / 60);
-      let time = addZero(minuts,seconds);
+      let time = addZero(minuts, seconds);
 
       d_seconds.innerHTML = time[0] + " : " + time[1];
       document.title = `${oldtitle}  ${time[0]}  :  ${time[1]}`;
     }
   } else {
     d_seconds.innerHTML = "ACABOU";
-    document.title = oldtitle + " ACABOU"
+    document.title = oldtitle + " ACABOU";
     playSound();
   }
 }
