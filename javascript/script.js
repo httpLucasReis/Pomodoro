@@ -1,4 +1,5 @@
 const d_seconds = document.querySelector("div#seconds");
+d_seconds.innerHTML = "25 : 00";
 
 var buffer_seconds; // Memória padrão para os segundos
 var seconds;
@@ -70,7 +71,7 @@ function work() {
   }
 }
 
-// Função para chamar a contagem específica para um cliclo de descanso
+// Função para chamar a contagem específica para um ciclo de descanso
 function rest() {
   playAudioT = false;
   forceCount();
