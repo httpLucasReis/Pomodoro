@@ -42,6 +42,17 @@ header {
   flex-direction: column;
 }
 
+.container #buttons {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  
+}
+
+.container #buttons span{
+  margin-left: 10px;
+}
+
 #seconds {
   color: #fff;
   font-size: 6rem;
