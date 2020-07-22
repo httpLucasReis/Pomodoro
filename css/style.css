@@ -11,16 +11,20 @@ html {
 body {
   width: 100%;
   height: 100%;
+
   background: linear-gradient(to left top, #7bb676, #3b9c32);
 }
 
 header {
   font-size: 11pt;
+
   width: 100%;
   height: 15%;
+
   background-color: #fff;
   color: #93ec1f;
   text-transform: uppercase;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +33,9 @@ header {
 .container {
   width: 100%;
   height: 60%;
+  
   font-size: 3rem;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,12 +52,17 @@ header {
 
 .btn {
   background-color: #fff;
+ 
   border-radius: 4px;
+  
   outline: none;
   border: none;
   cursor: pointer;
+ 
   padding: 0.7rem 1.4rem;
+  
   font-size: 1.7rem;
+  
   transition: all 0.3s ease-out;
 }
 
@@ -71,95 +82,4 @@ header {
 #stop,
 #continue {
     display: none;
-}
-
-/* Mobile */
-
-@media(max-width: 670px){
-  @font-face {
-      font-family: "DsDigital";
-      src: url(../fonts/ds_digital/DS-DIGIT.TTF);
-    }
-    
-    body,
-    html {
-      height: 100%;
-    }
-    
-    body {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to left top, #7bb676, #3b9c32);
-    }
-    
-    header {
-      font-size: 11pt;
-      width: 100%;
-      height: 15%;
-      background-color: #fff;
-      color: #93ec1f;
-      text-transform: uppercase;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      width: 100%;
-      height: 60%;
-      font-size: 2pt;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .container button {
-      width: 100%;
-      height: 50%;
-      display: flex;
-    }
-    
-    #seconds {
-      color: #fff;
-      font-size: 5rem;
-      font-family: "DsDigital";
-    
-      margin-bottom: 5.0%;
-    }
-    
-    .btn {
-      background-color: #fff;
-      border-radius: 4px;
-      outline: none;
-      border: none;
-      cursor: pointer;
-      padding: 15px 40px;
-      margin-bottom: 5%;
-      font-size: 15pt;
-      transition: all 0.3s ease-out;
-    }
-
-    .btn i {
-      padding-right: 10px;
-    }
-    
-    .btn:hover {
-        transform: scale(1.05);
-        transition: all 0.3s ease-in;
-    }
-    
-    .start {
-      color: rgb(29, 97, 29);
-    }
-    
-    .stop {
-      color: rgb(221, 64, 16);
-    }
-    
-    #stop,
-    #continue {
-        display: none;
-    }
-
 }
