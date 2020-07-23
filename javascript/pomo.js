@@ -158,8 +158,7 @@ function count() {
       document.title = `${oldtitle}  ${time[0]}  :  ${time[1]}`;
     }
   } else {
-    console.log(typeOfPomo);
-    if (typeOfPomo == 2) { // Se o usuário concluir o pomodoro de 25 minutos
+    if (typeOfPomo == 1500) { // Se o usuário concluir o pomodoro de 25 minutos
       savePomo();
       saveDates();
       reloadBufferPomo();  // Atualizando a lista e quantidade de pomos
