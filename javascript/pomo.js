@@ -7,8 +7,14 @@ var minuts;
 var toCount = false; // Contando?
 var checkClick = false; // Clicou?
 var playAudioT = false;
+var interval;
+var typeOfPomo;
+
 const oldtitle = document.title;
 const audio = document.querySelector("audio");
+
+// Carregando o localStorage
+reloadBufferPomo();
 
 // Função para inserir um elemento na tela
 function display(element) {
@@ -25,6 +31,12 @@ function forceCount() {
   toCount = true;
 }
 
+// Função que limpa o intervalo é libera a opção de clique.
+function resetPomo() {
+  clearInterval(interval);
+  checkClick = false;
+}
+
 // Função para tocar áudio
 
 function playSound() {
@@ -37,8 +49,6 @@ function playSound() {
 // Função para checar qual botão o usuário clicou
 
 function check(task) {
-  let event = task;
-  console.log(event);
 
   if (task == "stop") {
     display("continue");
@@ -96,7 +106,8 @@ function longRest() {
   playAudioT = false;
   forceCount();
   buffer_seconds = 600;
-  if(checkClick == false) {
+  console.log(checkClick);
+  if (checkClick == false) {
     toCount = true;
     couting();
     checkClick = true;
@@ -129,16 +140,13 @@ function addZero(minuts, seconds) {
 
 // Transforma os segundos e minutos e os colaca na tela. Chama a função de contagem principal
 function couting() {
-  seconds = buffer_seconds % 60;
-  minuts = Math.floor(buffer_seconds / 60);
-  let time = addZero(minuts, seconds);
-
-  d_seconds.innerHTML = time[0] + " : " + time[1];
-  var interval = setInterval(count, 1000);
+  typeOfPomo = buffer_seconds;
+  interval = setInterval(count, 1000);
 }
 
 // Tira 1 segundo do buffer_seconds e depois reimprime os minutos na tela
 function count() {
+
   if (buffer_seconds > 0) {
     if (toCount == true) {
       buffer_seconds--;
@@ -150,8 +158,15 @@ function count() {
       document.title = `${oldtitle}  ${time[0]}  :  ${time[1]}`;
     }
   } else {
+    console.log(typeOfPomo);
+    if (typeOfPomo == 2) { // Se o usuário concluir o pomodoro de 25 minutos
+      savePomo();
+      saveDates();
+      reloadBufferPomo();  // Atualizando a lista e quantidade de pomos
+    }
     d_seconds.innerHTML = "ACABOU";
     document.title = oldtitle + " ACABOU";
     playSound();
+    resetPomo();   
   }
 }

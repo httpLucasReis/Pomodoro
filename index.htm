@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/ef225fb983.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <title>Pomodoro</title>
-  </head>
-  <body>
-    <header>
-      <h1>Pomodoro Timer</h1>
-    </header>
-    <div class="container">
-      <audio src="audio/Simple-alert-bells-tone.mp3"></audio>
-      <div id="seconds"></div>
-      <div id="buttons">
-        <button class="btn start" id="work" onclick="check('work')">
-          <i class="fas fa-book"></i><span>Trabalhar</span>
-        </button>
-        <button class="btn start" id="rest" onclick="check('srest')">
-          <i class="fas fa-glass-whiskey"></i> <span>Descanso curto</span> 
-        </button>
-        <button class="btn start" id="rest" onclick="check('lrest')">
-          <i class="fas fa-walking"></i> <span>Descanso longo</span> 
-        </button>
-        <button class="btn stop" id="pause" onclick="check('stop')">
-          <i class="fas fa-stop"></i> <span>Pausar</span> 
-        </button>
-        <button class="btn start" id="continue" onclick="check('continue')">
-          <i class="fas fa-play"></i> <span>Continuar</span>  
-        </button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/ef225fb983.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <title>Pomodoro</title>
+</head>
+
+<body>
+  <header>
+    <div id="btn-navbar">
+      <i class="fas fa-bars"></i>
     </div>
-    <script src="javascript/script.js"></script>
-  </body>
+    <div id="navbar">
+    </div>
+    <h1>Pomodoro Timer</h1>
+  </header>
+  <div class="container">
+    <audio src="audio/Simple-alert-bells-tone.mp3"></audio>
+    <div id="seconds"></div>
+    <div id="buttons">
+      <button class="btn start" id="work" onclick="check('work')">
+        <i class="fas fa-book"></i><span>Trabalhar</span>
+      </button>
+      <button class="btn start" id="rest" onclick="check('srest')">
+        <i class="fas fa-glass-whiskey"></i> <span>Descanso curto</span>
+      </button>
+      <button class="btn start" id="rest" onclick="check('lrest')">
+        <i class="fas fa-walking"></i> <span>Descanso longo</span>
+      </button>
+      <button class="btn stop" id="pause" onclick="check('stop')">
+        <i class="fas fa-stop"></i> <span>Pausar</span>
+      </button>
+      <button class="btn start" id="continue" onclick="check('continue')">
+        <i class="fas fa-play"></i> <span>Continuar</span>
+      </button>
+    </div>
+  </div>
+  <footer>Criado por Manoel Lucas</footer>
+  <script src="./javascript/responsive.js"></script>  
+  <script src="./javascript/localdata.js"></script>
+  <script src="./javascript/pomo.js" defer></script>
+</body>
+
 </html>
